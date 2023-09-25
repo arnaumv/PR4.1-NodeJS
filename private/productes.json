@@ -4,21 +4,21 @@
       "nom": "Imatge 1",
       "preu": 20.99,
       "descripció": "Aquest és el primer producte de la botiga.",
-      "imatge": "public/images/producte1.jpg"
+      "imatge": "public/images/catedral.jpg"
     },
     {
       "id": 2,
       "nom": "Imatge 2",
       "preu": 15.49,
       "descripció": "Aquest és el segon producte de la botiga.",
-      "imatge": "public/images/producte2.jpg"
+      "imatge": "public/images/gaudi.jpg"
     },
     {
       "id": 3,
       "nom": "Imatge 3",
       "preu": 30.75,
       "descripció": "Aquest és el tercer producte de la botiga.",
-      "imatge": "public/images/producte3.jpg"
+      "imatge": "public/images/muserArts.jpg"
     },
 
     {
@@ -26,6 +26,14 @@
         "nom": "Imatge 4",
         "preu": 15.75,
         "descripció": "Aquest és el cuart producte de la botiga.",
-        "imatge": "public/images/producte4.jpg"
+        "imatge": "public/images/plEspanya.jpg"
+      },
+
+      {
+        "id": 5,
+        "nom": "Imatge 5",
+        "preu": 15.75,
+        "descripció": "Aquest és el cuart producte de la botiga.",
+        "imatge": "public/images/pontDiable.jpg"
       }
   ]
