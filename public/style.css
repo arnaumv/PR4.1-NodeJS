@@ -1,0 +1,28 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    user-select: none;
+    }
+
+.head {
+    background: linear-gradient(to bottom, #0074e4, #0053a0);
+    color: white; /* Cambia el color del texto si es necesario */
+    padding: 20px; /* Añade espaciado interno para el contenido en el head */
+    text-align: center; /* Centra el contenido del head */
+  }
+  
+
+
+p {
+    color: red;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Apila los elementos uno debajo del otro */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    height: 100vh; /* Ajusta la altura según sea necesario */
+  }
+
+  
