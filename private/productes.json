@@ -23,7 +23,7 @@
 
     {
         "id": 4,
-        "nom": "Imatge 4.",
+        "nom": "Imatge 4",
         "preu": 15.75,
         "descripció": "Aquest és el cuart producte de la botiga.",
         "imatge": "public/images/producte4.jpg"
