@@ -1,5 +1,14 @@
 const express = require('express')
+const url = require('url')
+const ejs = require('ejs')
+const multer = require('multer')
+const { v4: uuidv4 } = require('uuid')
+const fs = require('fs/promises')
+const storage = multer.memoryStorage() 
+const upload = multer({ storage: storage })
+
 const app = express()
+
 const port = 3000
 
 // Configurar direcció ‘/’ 
