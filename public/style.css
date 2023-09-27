@@ -43,8 +43,8 @@ nav ul li a {
 }
 
 .photo img {
-  max-width: 100%;
-  height: auto;
+  width: 201;
+  height: 251px;
   border: 1px solid #ccc;
 }
 
