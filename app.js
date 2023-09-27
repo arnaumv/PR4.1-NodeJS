@@ -15,7 +15,7 @@ app.set('view engine', 'ejs')
 // Publicar arxius carpeta ‘public’ 
 app.use(express.static('public'))
 
-const port = 3000
+const port = 3001
 
 // // Configurar direcció ‘/’ 
 // app.get('/', getHello)
