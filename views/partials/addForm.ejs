@@ -1,7 +1,22 @@
+<style>
+    /* Estilos para centrar el formulario y ajustar el tamaño de fuente */
+    form {
+        text-align: justify;
+        font-size: 16px; /* Puedes ajustar el tamaño de fuente según tus preferencias */
+        width: 50%; /* Puedes ajustar el ancho del formulario según tus necesidades */
+        margin: 0 auto; /* Centrar horizontalmente */
+    }
+
+    .formRow {
+        margin: 10px 0;
+    }
+</style>
+
 <form method="post" action="/addItem" enctype="multipart/form-data">
     <div class="formRow">Nom: <input type="text" name="nom" /></div>
     <div class="formRow">Any: <input type="text" name="any" /></div>
-    <div class="formRow">Descripció: <textarea type="text" name="descripcio"></textarea></div>
-    <div class="formRow">Imatge:<input type="file" name="files"></div>
+    <div class="formRow">País: <input type="text" name="pais" /></div>
+    <div class="formRow">Descripció: <textarea name="descripcio"></textarea></div>
+    <div class="formRow">Imatge: <input type="file" name="files"></div>
     <div class="formRow"><input type="submit" value="Afegir"></div>
 </form>
