@@ -9,6 +9,12 @@ const upload = multer({ storage: storage })
 
 const app = express()
 
+// Configurar el motor de plantilles
+app.set('view engine', 'ejs')
+
+// Publicar arxius carpeta ‘public’ 
+app.use(express.static('public'))
+
 const port = 3000
 
 // // Configurar direcció ‘/’ 
@@ -102,7 +108,7 @@ res.render('sites/search', { llista: noms })
 // Ruta d'Inici
 app.get('/', (req, res) => {
     // Aquí pots enviar la pàgina d'inici o contingut d'inici
-    res.render('sites/inici', {  });
+    res.render('sites/inici', );
 });
 
 // Ruta d'Afegir
