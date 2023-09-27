@@ -11,14 +11,14 @@ const app = express()
 
 const port = 3000
 
-// Configurar direcció ‘/’ 
-app.get('/', getHello)
-async function getHello (req, res) {
-res.send(`Hello World`)
-}
+// // Configurar direcció ‘/’ 
+// app.get('/', getHello)
+// async function getHello (req, res) {
+// res.send(`Hello World`)
+// }
 
 // Activar el servidor
-const httpServer = app.listen(port, appListen)
+const httpServer = app.listen(port, appListen) 
 function appListen () {
 console.log(`Example app listening on: http://localhost:${port}`)
 }
@@ -102,7 +102,7 @@ res.render('sites/search', { llista: noms })
 // Ruta d'Inici
 app.get('/', (req, res) => {
     // Aquí pots enviar la pàgina d'inici o contingut d'inici
-    res.render('sites/inici', { title: 'Pàgina d\'Inici' });
+    res.render('sites/inici', {  });
 });
 
 // Ruta d'Afegir
