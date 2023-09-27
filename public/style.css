@@ -1,64 +1,66 @@
-/* Estilos generales */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+/* styles.css */
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-}
-
-/* Estilos para la sección de fotos */
+/* Estilos para el contenedor de fotos */
 .photo-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  max-width: 800px; /* Ajusta el ancho máximo según tus preferencias */
+  margin: 0 auto;
   padding: 20px;
 }
 
+/* Estilos para cada foto */
 .photo {
-  margin: 20px;
+  flex: 0 0 calc(50% - 10px); /* Para que haya dos columnas con un espacio de 10px entre ellas */
+  margin-bottom: 20px;
   text-align: center;
-  max-width: 45%; /* Ajusta el tamaño para que haya dos fotos por fila */
 }
 
 .photo img {
-  width: 201;
-  height: 251px;
-  border: 1px solid #ccc;
+  width: 201px; /* Todas las imágenes tendrán el mismo ancho */
+  max-height: 251px; /* Ajusta la altura máxima según tus preferencias */
 }
 
+/* Estilos para los botones */
 .edit-button {
   background-color: #007bff;
   color: #fff;
   border: none;
   padding: 10px 20px;
-  margin-top: 10px;
   cursor: pointer;
-  border-radius: 5px;
-  display: block; /* Hace que el botón aparezca debajo de la foto */
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .edit-button:hover {
   background-color: #0056b3;
+}
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
 }
