@@ -114,7 +114,7 @@ app.get('/', (req, res) => {
 // Ruta d'Afegir
 app.get('/add', (req, res) => {
     // Aquí pots enviar la pàgina d'afegir o contingut d'afegir
-    res.render('sites/add', { title: 'Afegir Producte' });
+    res.render('sites/add', );
 });
 
 // Ruta de Modificar (amb un paràmetre d'URL id)
