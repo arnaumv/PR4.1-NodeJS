@@ -40,68 +40,6 @@ process.exit(0);
 
 
 
-// Configurar direcció ‘/llistat’ i paràmetres URL 
-app.get('/llistat', getLlistat)
-async function getLlistat (req, res) {
- let query = url.parse(req.url, true).query;
-  if (query.cerca && query.color) {
-   res.send(`Aquí tens el llistat de ${query.cerca} de color ${query.color}`)
-  } else {
-   res.send('Paràmetres incorrectes')
-  }
-}
-
-
-
-// Retornar una pàgina dinàmica de item
-app.get('/item', getItem)
-async function getItem (req, res) {
-  let query = url.parse(req.url, true).query;
-  try {
-  // Llegir el fitxer JSON
-  let dadesArxiu = await fs.readFile("./private/productes.json", { encoding: 'utf8'})
-  console.log(dadesArxiu)
-  let dades = JSON.parse(dadesArxiu)
-  console.log(dades)
-  // Buscar la nau per nom
-  let infoProd = dades.find(nau => (nau.nom == query.nom))
-  if (infoProd) {
-  // Retornar la pàgina segons la nau trobada
-  // Fa servir la plantilla 'sites/item.ejs'
-  res.render('sites/item', { infoProd: infoProd })
-  } else {
-  res.send('Paràmetres incorrectes')
-  }
-  } catch (error) {
-  console.error(error)
-  res.send('Error al llegir el fitxer JSON')
-  }
-  }
-
-
-  // Configurar direcció ‘/llistat’ i paràmetres URL
-app.get('/search', getSearch)
-async function getSearch (req, res) {
-let query = url.parse(req.url, true).query;
-let noms = []
-if (query.country) {
-// 'llista' conté un array amb les naus del país
-llista = dades.filter(nau => (nau.pais == query.country))
-// 'noms' conté un array amb els noms de les naus anteriors
-noms = llista.map(nau => { return nau.nom })
-res.render('sites/search', { llista: noms })
-} else if (query.word) {
-// 'llista' conté els noms de les naus que la descripció conté la paraula
-llista = dades.filter(nau => ((nau.descripcio).toLowerCase().indexOf(query.word.toLocaleLowerCase()) != -1))
-// 'noms' conté un array amb els noms de les naus anteriors ‘
-noms = llista.map(nau => { return nau.nom })
-res.render('sites/search', { llista: noms })
-} else {
-// 'noms' conté un array amb els noms de totes les naus ‘
-noms = dades.map(nau => { return nau.nom })
-res.render('sites/search', { llista: noms })
-}
-}
 
 
 
@@ -116,6 +54,40 @@ app.get('/add', (req, res) => {
     // Aquí pots enviar la pàgina d'afegir o contingut d'afegir
     res.render('sites/add', );
 });
+
+
+
+app.post('/add', upload.array('files'), addItem)
+async function addItem (req, res) {
+let arxiu = "./private/productes.json"
+let postData = await getPostObject(req)
+try {
+// Llegir el fitxer JSON
+let dadesArxiu = await fs.readFile(arxiu, { encoding: 'utf8'})
+let dades = JSON.parse(dadesArxiu)
+
+// Guardem la imatge a la carpeta 'public' amb un nom únic
+if (postData.files && postData.files.length > 0) {
+let fileObj = postData.files[0];
+const uniqueID = uuidv4()
+const fileExtension = fileObj.name.split('.').pop()
+let filePath = `${uniqueID}.${fileExtension}`
+await fs.writeFile('./public/' + filePath, fileObj.content);
+// Guardem el nom de l'arxiu a la propietat 'imatge' de l'objecte
+postData.imatge = filePath;
+// Eliminem el camp 'files' perquè no es guardi al JSON
+delete postData.files;
+}
+dades.push(postData) // Afegim el nou objecte (que ja té el nou nom d’imatge)
+let textDades = JSON.stringify(dades, null, 4) // Ho transformem a cadena de text (per guardar-ho en un arxiu)
+await fs.writeFile(arxiu, textDades, { encoding: 'utf8'}) // Guardem la informació a l’arxiu
+res.send(`S'han afegit les dades ${textDades}`)
+} catch (error) {
+console.error(error)
+res.send('Error al afegir les dades')
+}
+}
+
 
 // Ruta de Modificar (amb un paràmetre d'URL id)
 app.get('/edit', (req, res) => {
