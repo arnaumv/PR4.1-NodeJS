@@ -1,27 +1,10 @@
 <section class="photo-list">
-    <div class="photo">
-        <img src="/images/catedral.jpg" alt="Foto 1"><br>
+    <% for (let i = 0; i < llista.length; i++) { %>
+      <div class="photo">
+        <h4> <%= llista[i].id %>, <%= llista[i].nom %></h4>
+        <img src="<%= llista[i].imatge %>" alt="Foto <%= i + 1 %>"><br>
         <button class="edit-button">Editar Producto</button>
-    </div>
-    <div class="photo">
-        <img src="/images/gaudi.jpg" alt="Foto 2"><br>
-        <button class="edit-button">Editar Producto</button>
-    </div>
-    <div class="photo">
-        <img src="/images/muserArts.jpg" alt="Foto 3"><br>
-        <button class="edit-button">Editar Producto</button>
-    </div>
-    <div class="photo">
-        <img src="/images/plEspanya.jpg" alt="Foto 4"><br>
-        <button class="edit-button">Editar Producto</button>
-    </div>
-    <div class="photo">
-        <img src="/images/pontDiable.jpg" alt="Foto 5"><br>
-        <button class="edit-button">Editar Producto</button>
-    </div>
-    <div class="photo">
-        <img src="/images/tibidabo.jpg" alt="Foto 6"><br>
-        <button class="edit-button">Editar Producto</button>
-    </div>
-    <!-- Agrega más fotos y botones de edición según sea necesario -->
-</section>
+      </div>
+    <% } %>
+  </section>
+  

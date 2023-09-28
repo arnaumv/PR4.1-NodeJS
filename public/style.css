@@ -64,3 +64,51 @@ nav a {
   text-decoration: none;
   color: #fff;
 }
+
+
+
+/* Estilo para el contenedor del formulario */
+.formu {
+  max-width: 400px; /* Ancho máximo del formulario */
+  margin: 0 auto; /* Centrar horizontalmente */
+  padding: 20px; /* Espaciado interno para separar el contenido del borde */
+  border: 1px solid #ccc; /* Borde alrededor del formulario */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilo para cada fila del formulario */
+.formRow {
+  margin-bottom: 15px; /* Espaciado entre filas */
+}
+
+/* Estilo para las etiquetas de los campos */
+.formRow label {
+  display: inline-block; /* Hacer que las etiquetas sean elementos en línea */
+  width: 100px; /* Ancho fijo para etiquetas */
+  font-weight: bold; /* Negrita para etiquetas */
+}
+
+/* Estilo para los campos de entrada de texto */
+.formRow input[type="text"],
+.formRow textarea {
+  width: 100%; /* Ancho completo para campos de entrada de texto y textarea */
+  padding: 5px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde alrededor de los campos */
+  border-radius: 3px; /* Bordes redondeados */
+}
+
+/* Estilo para el campo de archivo */
+.formRow input[type="file"] {
+  width: 100%; /* Ancho completo para el campo de archivo */
+  padding: 5px; /* Espaciado interno */
+}
+
+/* Estilo para el botón de envío */
+.formRow input[type="submit"] {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 3px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar el ratón sobre el botón */
+}

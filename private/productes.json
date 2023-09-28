@@ -1,39 +1,51 @@
 [
     {
-      "id": 1,
-      "nom": "Imatge 1",
-      "preu": 20.99,
-      "descripció": "Aquest és el primer producte de la botiga.",
-      "imatge": "public/images/catedral.jpg"
+        "id": 1,
+        "nom": "Catedral BCN",
+        "preu": 20.99,
+        "descripció": "Aquest és el primer producte de la botiga.",
+        "imatge": "images/catedral.jpg"
     },
     {
-      "id": 2,
-      "nom": "Imatge 2",
-      "preu": 15.49,
-      "descripció": "Aquest és el segon producte de la botiga.",
-      "imatge": "public/images/gaudi.jpg"
+        "id": 2,
+        "nom": "Parck Guell",
+        "preu": 15.49,
+        "descripció": "Aquest és el segon producte de la botiga.",
+        "imatge": "images/gaudi.jpg"
     },
     {
-      "id": 3,
-      "nom": "Imatge 3",
-      "preu": 30.75,
-      "descripció": "Aquest és el tercer producte de la botiga.",
-      "imatge": "public/images/muserArts.jpg"
+        "id": 3,
+        "nom": "Museu d'Arts",
+        "preu": 30.75,
+        "descripció": "Aquest és el tercer producte de la botiga.",
+        "imatge": "/images/muserArts.jpg"
     },
-
     {
         "id": 4,
-        "nom": "Imatge 4",
+        "nom": "Pl Espanya",
         "preu": 15.75,
         "descripció": "Aquest és el cuart producte de la botiga.",
-        "imatge": "public/images/plEspanya.jpg"
-      },
-
-      {
+        "imatge": "images/plEspanya.jpg"
+    },
+    {
         "id": 5,
-        "nom": "Imatge 5",
+        "nom": "Pont del Diable",
         "preu": 15.75,
-        "descripció": "Aquest és el cuart producte de la botiga.",
-        "imatge": "public/images/pontDiable.jpg"
-      }
-  ]
+        "descripció": "Aquest és el quint producte de la botiga.",
+        "imatge": "images/pontDiable.jpg"
+    },
+    {
+        "id": 6,
+        "nom": "Tibidabo",
+        "preu": 15.75,
+        "descripció": "Aquest és el sext producte de la botiga.",
+        "imatge": "images/tibidabo.jpg"
+    },
+    {
+        "nom": "Calle Colon",
+        "preu": 32.21,
+        "descripcio": "septima foto",
+        "id": 7,
+        "imatge": "images/dc528bfc-90d5-4363-aa0d-48c7dab89525.jpg"
+    }
+]
