@@ -17,12 +17,6 @@ app.use(express.static('public'))
 
 const port = 3001
 
-// // Configurar direcció ‘/’ 
-// app.get('/', getHello)
-// async function getHello (req, res) {
-// res.send(`Hello World`)
-// }
-
 // Activar el servidor
 const httpServer = app.listen(port, appListen)
 function appListen() {
@@ -37,11 +31,6 @@ function shutDown() {
     httpServer.close()
     process.exit(0);
 }
-
-
-
-
-
 
 // Ruta d'Inici
 app.get('/', getInici)
