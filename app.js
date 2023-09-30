@@ -137,7 +137,7 @@ async function add(req, res) {
 async function getPostObject(req) {
     return new Promise(async (resolve, reject) => {
       let objPost = {};
-      // Process files
+      // Processar fitxers
       if (req.files.length > 0) { objPost.files = [] }
       req.files.forEach(file => {
         objPost.files.push({
@@ -145,10 +145,10 @@ async function getPostObject(req) {
           content: file.buffer
         })
       })
-      // Process other form fields
+      // Processar altres camps del formulari
       for (let key in req.body) {
         let value = req.body[key]
-        if (!isNaN(value)) { // Check if is a number (example: "2ABC" is not a 2)
+        if (!isNaN(value)) { // Comprovar si és un número
           let valueInt = parseInt(value)
           let valueFlt = parseFloat(value)
           if (valueInt && valueFlt) {
