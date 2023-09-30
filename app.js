@@ -32,7 +32,8 @@ function shutDown() {
     process.exit(0);
 }
 
-// Ruta d'Inici
+/*       Ruta d'Inici     */
+
 app.get('/', getInici)
 
 async function getInici(req, res) {
@@ -65,16 +66,8 @@ async function getInici(req, res) {
     }
 }
 
+/*            Ruta d'Afegir    */
 
-
-
-
-
-
-
-
-
-// Ruta d'Afegir
 app.get('/add', (req, res) => {
     // Aquí pots enviar la pàgina d'afegir o contingut d'afegir
     res.render('sites/add',);
@@ -153,7 +146,8 @@ async function getPostObject(req) {
   }
 
 
-// Ruta de Modificar (amb un paràmetre d'URL id)
+/*    Ruta de Modificar (amb un paràmetre d'URL id)    */
+
 app.get('/edit', (req, res) => {
     const productId = req.query.id;
     // Aquí pots processar l'identificador productId i enviar la pàgina de modificació
@@ -161,7 +155,8 @@ app.get('/edit', (req, res) => {
     res.render('sites/edit', { title: 'Modificar Producte', productId });
 });
 
-// Ruta de Confirmació d'Esborrar (amb un paràmetre d'URL id)
+/*    Ruta de Confirmació d'Esborrar (amb un paràmetre d'URL id)  */
+
 app.get('/delete', (req, res) => {
     const productId = req.query.id;
     // Aquí pots processar l'identificador productId i enviar la pàgina de confirmació
@@ -170,7 +165,7 @@ app.get('/delete', (req, res) => {
 });
 
 // Ruta d'Acció d'Esborrar (amb un paràmetre d'URL id)
-app.get('/actionDelete', (req, res) => {
+app.post('/actionDelete', (req, res) => {
     const productId = req.query.id;
     // Aquí pots processar l'identificador productId i realitzar l'acció d'esborrar
     // Després, pots redirigir l'usuari a una altra pàgina com l'Inici o mostrar un missatge d'èxit
