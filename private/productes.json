@@ -47,5 +47,12 @@
         "descripcio": "septima foto",
         "id": 7,
         "imatge": "images/dc528bfc-90d5-4363-aa0d-48c7dab89525.jpg"
+    },
+    {
+        "nom": "Anell Olimpic",
+        "preu": 25,
+        "descripcio": "Anell olímpic on es van celebrar els jocs de 1992, situat als frondosos vessants de Montjuïc.",
+        "id": 8,
+        "imatge": "images/42e9c270-57f5-4b2c-93ce-887e5422183c.jpg"
     }
 ]

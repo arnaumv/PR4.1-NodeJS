@@ -68,14 +68,30 @@ nav a {
 
 
 /* Estilo para el contenedor del formulario */
-
-
 .formu {
   max-width: 400px; /* Ancho máximo del formulario */
   margin: 0 auto; /* Centrar horizontalmente */
   padding: 20px; /* Espaciado interno para separar el contenido del borde */
   border: 1px solid #ccc; /* Borde alrededor del formulario */
   border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilo para el encabezado del formulario */
+.formHeader {
+  display: flex; /* Mostrar elementos en línea */
+  justify-content: space-between; /* Espaciado entre elementos */
+  align-items: center; /* Centrar verticalmente */
+  margin-bottom: 15px; /* Espaciado entre encabezado y formulario */
+}
+
+/* Estilo para el botón "Editar" */
+.editButton {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  padding: 10px 15px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 3px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar el ratón sobre el botón */
 }
 
 /* Estilo para cada fila del formulario */
@@ -90,7 +106,7 @@ nav a {
   font-weight: bold; /* Negrita para etiquetas */
 }
 
-/* Estilo para los campos de entrada de texto */
+/* Estilo para los campos de entrada de texto y textarea */
 .formRow input[type="text"],
 .formRow textarea {
   width: 100%; /* Ancho completo para campos de entrada de texto y textarea */
@@ -113,4 +129,11 @@ nav a {
   border: none; /* Sin borde */
   border-radius: 3px; /* Bordes redondeados */
   cursor: pointer; /* Cambiar el cursor al pasar el ratón sobre el botón */
+}
+
+/* Estilo para la miniatura de la imagen */
+.miniatura img {
+  max-width: 25%; /* Ajustar la imagen al ancho de su contenedor */
+  height: auto; /* Mantener la proporción de aspecto */
+  margin-top: 10px; /* Espaciado superior de la miniatura */
 }

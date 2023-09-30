@@ -73,7 +73,7 @@ app.get('/add', (req, res) => {
     res.render('sites/add',);
 });
 
-app.post('/add', upload.array('files'), add)
+app.post('/ActionAdd', upload.array('files'), add)
 async function add(req, res) {
     let arxiu = "./private/productes.json"
     let postData = await getPostObject(req)
@@ -153,6 +153,14 @@ app.get('/edit', (req, res) => {
     // Aquí pots processar l'identificador productId i enviar la pàgina de modificació
     // o contingut de modificació basat en l'ID
     res.render('sites/edit', { title: 'Modificar Producte', productId });
+});
+
+// Ruta d'Acció d'Esborrar (amb un paràmetre d'URL id)
+app.post('/actionEdit', (req, res) => {
+    const productId = req.query.id;
+    // Aquí pots processar l'identificador productId i realitzar l'acció d'esborrar
+    // Després, pots redirigir l'usuari a una altra pàgina com l'Inici o mostrar un missatge d'èxit
+    // ...
 });
 
 /*    Ruta de Confirmació d'Esborrar (amb un paràmetre d'URL id)  */
