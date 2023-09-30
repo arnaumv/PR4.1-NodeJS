@@ -147,13 +147,30 @@ async function getPostObject(req) {
 
 
 /*    Ruta de Modificar (amb un paràmetre d'URL id)    */
+app.get('/edit', getedit)
 
-app.get('/edit', (req, res) => {
-    const productId = req.query.id;
-    // Aquí pots processar l'identificador productId i enviar la pàgina de modificació
-    // o contingut de modificació basat en l'ID
-    res.render('sites/edit', { title: 'Modificar Producte', productId });
-});
+async function getedit(req, res) {
+    let query = url.parse(req.url, true).query;
+    try {
+      // Llegir el fitxer JSON
+      let dadesArxiu = await fs.readFile("./private/productes.json", { encoding: 'utf8' })
+      console.log(dadesArxiu)
+      let dades = JSON.parse(dadesArxiu)
+      console.log(dades)
+      // Buscar la nau per nom
+      let infoProduct = dades.find(nau => (nau.id == query.id))
+      if (infoProduct) {
+        // Retornar la pàgina segons la nau trobada
+        // Fa servir la plantilla 'sites/item.ejs'
+        res.render('sites/edit', { infoProduct: infoProduct })
+      } else {
+        res.send('Paràmetres incorrectes')
+      }
+    } catch (error) {
+      console.error(error)
+      res.send('Error al llegir el fitxer JSON')
+    }
+}
 
 // Ruta d'Acció d'Esborrar (amb un paràmetre d'URL id)
 app.post('/actionEdit', (req, res) => {

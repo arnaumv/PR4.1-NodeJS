@@ -1,0 +1,28 @@
+<div class="formu">
+    <div class="formHeader">
+      <p>Modificar el producte <br> amb el id: '<%= infoProduct.id %>'</p>
+      <button class="editButton">Borrar</button>
+    </div>
+    <form method="post" action="/update" enctype="multipart/form-data">
+      <div class="formRow">Nom:
+        <input type="text" name="nom" id="nom" placeholder="<%= infoProduct.nom %>"/>
+      </div>
+      <div class="formRow">Preu:
+        <input type="text" name="preu" id="preu" placeholder="<%= infoProduct.preu %> €"/>
+      </div>
+      <div class="formRow">Descripció:
+        <textarea name="descripcio" id="descripcio" placeholder="<%= infoProduct.descripcio %>"></textarea>
+      </div>
+      <div class="miniatura">
+        <!-- Miniatura de la imagen -->
+        <img src="<%= infoProduct.imatge %>" alt="Miniatura de la imagen" />
+      </div>
+      <div class="formRow" style="white-space: nowrap">
+        Nova Imatge:<input type="file" name="files" id="imatge" />
+      </div>
+      <div class="formRow">
+        <input type="submit" value="Actualitzar" />
+      </div>
+    </form>
+    
+  </div>

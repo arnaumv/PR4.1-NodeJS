@@ -3,48 +3,48 @@
         "id": 1,
         "nom": "Catedral BCN",
         "preu": 20.99,
-        "descripció": "Aquest és el primer producte de la botiga.",
+        "descripcio": "La catedral respon a la planta característica de les esglésies gòtiques, en forma de creu amb tres naus, girola i transsepte.",
         "imatge": "images/catedral.jpg"
     },
     {
         "id": 2,
-        "nom": "Parck Guell",
+        "nom": "Parc Güell",
         "preu": 15.49,
-        "descripció": "Aquest és el segon producte de la botiga.",
+        "descripcio": "Amb una extensió de més de 17 hectàrees, el Parc Güell és cobert per formes ondulades, columnes amb aspecte d'arbres, figures d'animals i formes geomètriques. La major part de les superfícies estan decorades amb mosaics realitzats amb trossets de ceràmica de colors.",
         "imatge": "images/gaudi.jpg"
     },
     {
         "id": 3,
-        "nom": "Museu d'Arts",
+        "nom": "Museu Nacional d'Art de Catalunya",
         "preu": 30.75,
-        "descripció": "Aquest és el tercer producte de la botiga.",
+        "descripcio": "El Museu Nacional d'Art de Catalunya està ubicat al Palau Nacional de Montjuïc, construït per a l'Exposició Internacional del 1929. El 1934 va obrir les portes com a Museu d'Art de Catalunya, reunint la col·lecció medieval.",
         "imatge": "/images/muserArts.jpg"
     },
     {
         "id": 4,
-        "nom": "Pl Espanya",
+        "nom": "Pl. Espanya",
         "preu": 15.75,
-        "descripció": "Aquest és el cuart producte de la botiga.",
+        "descripcio": "Una de les places més grans del país que va ser construïda per a l'exposició internacional del 1929. Des d'aquella data ha aconseguit ser un referent per fer conèixer Barcelona tots els seus visitants.",
         "imatge": "images/plEspanya.jpg"
     },
     {
         "id": 5,
         "nom": "Pont del Diable",
         "preu": 15.75,
-        "descripció": "Aquest és el quint producte de la botiga.",
+        "descripcio": "És un pont d'origen romà reconstruït el 1295. El Pont del Diable en català Pont del Diable, antigament conegut pel Pont de Sant Bartomeu, és d'origen romà i formava part de la via Augusta. Data del segle 10 a.",
         "imatge": "images/pontDiable.jpg"
     },
     {
         "id": 6,
         "nom": "Tibidabo",
         "preu": 15.75,
-        "descripció": "Aquest és el sext producte de la botiga.",
+        "descripcio": "El Tibidabo és, amb 512 metres sobre el nivell del mar, el cim més alt de la serra de Collserola, al municipi de Barcelona.",
         "imatge": "images/tibidabo.jpg"
     },
     {
-        "nom": "Calle Colon",
+        "nom": "Pg. de Colom",
         "preu": 32.21,
-        "descripcio": "septima foto",
+        "descripcio": "El passeig de Colom és una avinguda del districte de Ciutat Vella, de Barcelona, que discorre paral·lela al mar entre les places d'Antonio López i Porta de la Pau, on s'aixeca el Monument a Cristòfor Colom.",
         "id": 7,
         "imatge": "images/dc528bfc-90d5-4363-aa0d-48c7dab89525.jpg"
     },
