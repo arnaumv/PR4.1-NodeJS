@@ -74,6 +74,7 @@ app.get('/add', (req, res) => {
 });
 
 app.post('/ActionAdd', upload.array('files'), add)
+
 async function add(req, res) {
     let arxiu = "./private/productes.json"
     let postData = await getPostObject(req)
@@ -173,19 +174,74 @@ async function getedit(req, res) {
 }
 
 // Ruta d'Acció d'Esborrar (amb un paràmetre d'URL id)
-app.post('/actionEdit', (req, res) => {
-    const productId = req.query.id;
-    // Aquí pots processar l'identificador productId i realitzar l'acció d'esborrar
-    // Després, pots redirigir l'usuari a una altra pàgina com l'Inici o mostrar un missatge d'èxit
-    // ...
-});
+
+
+app.post('/actionEdit', upload.array('files'), edit);
+
+async function edit(req, res) {
+  try {
+    let arxiu = "./private/productes.json";
+    let postData = await getPostObject(req);
+
+    // Leer el archivo JSON
+    let dadesArxiu = await fs.readFile(arxiu, { encoding: 'utf8' });
+    let dades = JSON.parse(dadesArxiu);
+
+    // Encontrar el índice del objeto que coincide con el ID recibido en el formulario
+    let indexToUpdate = dades.findIndex((item) => item.id === postData.id);
+
+    if (indexToUpdate === -1) {
+      // El ID no se encontró en la base de datos
+      res.status(404).send('ID no encontrado en la base de datos');
+      return;
+    }
+
+    // Actualizar solo los campos que se enviaron en el formulario
+    if (postData.nom !== undefined) {
+      dades[indexToUpdate].nom = postData.nom;
+    }
+    if (postData.preu !== undefined) {
+      dades[indexToUpdate].preu = postData.preu;
+    }
+    if (postData.descripcio !== undefined) {
+      dades[indexToUpdate].descripcio = postData.descripcio;
+    }
+
+    // Si se cargó una nueva imagen, guardarla y actualizar la propiedad 'imatge'
+    if (postData.files && postData.files.length > 0) {
+      let fileObj = postData.files[0];
+      const uniqueID = uuidv4();
+      const fileExtension = fileObj.name.split('.').pop();
+      let filePath = `${uniqueID}.${fileExtension}`;
+      await fs.writeFile('./public/images/' + filePath, fileObj.content);
+      dades[indexToUpdate].imatge = 'images/' + filePath;
+    }
+
+    // Transformar los datos actualizados a cadena de texto
+    let textDades = JSON.stringify(dades, null, 4);
+
+    // Guardar los datos actualizados en el archivo JSON
+    await fs.writeFile(arxiu, textDades, { encoding: 'utf8' });
+
+    res.redirect('/'); // Redirigir a la página de inicio después de la actualización
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error al actualizar los datos');
+  }
+}
+
+
+/* ################################ */
+
+
 
 // Ruta de Confirmación de Borrar (con un parámetro de URL id)
 app.get('/delete', (req, res) => {
   const productId = req.query.id;
   // Renderizar la página de confirmación de borrado
   // Usa la plantilla 'sites/confirmation.ejs'
-  res.render('sites/delete', { title: 'Confirmació d\'Esborrar', productId });
+  res.render('sites/delete',{ productId: productId });
 });
 
 // Ruta de Acción de Borrar (con un parámetro de URL id)
