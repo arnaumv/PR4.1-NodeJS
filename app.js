@@ -185,7 +185,7 @@ app.get('/delete', (req, res) => {
   const productId = req.query.id;
   // Renderizar la página de confirmación de borrado
   // Usa la plantilla 'sites/confirmation.ejs'
-  res.render('sites/confirmation', { title: 'Confirmació d\'Esborrar', productId });
+  res.render('sites/delete', { title: 'Confirmació d\'Esborrar', productId });
 });
 
 // Ruta de Acción de Borrar (con un parámetro de URL id)
