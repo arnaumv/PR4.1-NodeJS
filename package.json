@@ -1,7 +1,6 @@
 {
   "name": "package.json",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./app.js",
@@ -16,5 +15,6 @@
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.1",
     "uuid": "^9.0.1"
-  }
+  },
+  "description": ""
 }

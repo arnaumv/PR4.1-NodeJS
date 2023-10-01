@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/menu.ejs') %>
+    </header>
+  <!-- En sites/confirmation.ejs -->
+<main>
+    <!-- Mostrar la información del producto a borrar -->
+    <div class="product-info">
+        <h2>Esborrar el producte amb ID '<%= infoProduct.id %>'</h2>
+        <ul>
+            <li><strong>Nombre del Producto:</strong> <%= infoProduct.nom %></li>
+            <li><strong>Descripción:</strong> <%= infoProduct.descripcio %></li>
+            <li><strong>Precio:</strong> <%= infoProduct.preu %> €</li>
+            <!-- Otras propiedades del producto -->
+        </ul>
+        <div class="product-image">
+            <img src="<%= infoProduct.imatge %>" alt="Imagen del producto" />
+        </div>
+    </div>
+</main>
+
+       
+</body>
+
+</html>

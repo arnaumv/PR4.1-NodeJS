@@ -1,7 +1,6 @@
 <div class="formHeader">
   <p>Modificar el producte <br> amb el id: '<%= infoProduct.id %>'</p>
-  <a href="#"><button class="editButton">Borrar</button></a>
-</div>
+  <a href="/delete?id=<%= infoProduct.id %>"><button class="editButton">Borrar</button></a></div>
 <form method="post" action="/actionEdit" enctype="multipart/form-data">
 
   <!-- Campo de entrada oculto para pasar el id automáticamente -->

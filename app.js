@@ -180,19 +180,48 @@ app.post('/actionEdit', (req, res) => {
     // ...
 });
 
-/*    Ruta de Confirmació d'Esborrar (amb un paràmetre d'URL id)  */
-
+// Ruta de Confirmación de Borrar (con un parámetro de URL id)
 app.get('/delete', (req, res) => {
-    const productId = req.query.id;
-    // Aquí pots processar l'identificador productId i enviar la pàgina de confirmació
-    // d'esborrar o contingut de confirmació d'esborrar basat en l'ID
-    res.render('sites/confirmation', { title: 'Confirmació d\'Esborrar', productId });
+  const productId = req.query.id;
+  // Renderizar la página de confirmación de borrado
+  // Usa la plantilla 'sites/confirmation.ejs'
+  res.render('sites/confirmation', { title: 'Confirmació d\'Esborrar', productId });
 });
 
-// Ruta d'Acció d'Esborrar (amb un paràmetre d'URL id)
-app.post('/actionDelete', (req, res) => {
-    const productId = req.query.id;
-    // Aquí pots processar l'identificador productId i realitzar l'acció d'esborrar
-    // Després, pots redirigir l'usuari a una altra pàgina com l'Inici o mostrar un missatge d'èxit
-    // ...
+// Ruta de Acción de Borrar (con un parámetro de URL id)
+app.post('/actionDelete', async (req, res) => {
+  const productId = req.query.id;
+  try {
+    // Leer el archivo JSON
+    let dadesArxiu = await fs.readFile('./private/productes.json', { encoding: 'utf8' });
+    let dades = JSON.parse(dadesArxiu);
+
+    // Encontrar el índice del producto por ID
+    let infoProductIndex = dades.findIndex(producto => producto.id === productId);
+
+    if (infoProductIndex !== -1) {
+      // Obtener el nombre del archivo antiguo para borrarlo
+      const nombreArchivoAntiguo = dades[infoProductIndex].imatge;
+
+      // Eliminar el producto del array
+      dades.splice(infoProductIndex, 1);
+
+      // Escribir los datos actualizados en el archivo JSON
+      await fs.writeFile('./private/productes.json', JSON.stringify(dades, null, 2));
+
+      // Borrar el archivo antiguo si existe
+      if (nombreArchivoAntiguo) {
+        const rutaArchivoAntiguo = path.join('./private', nombreArchivoAntiguo);
+        await fs.unlink(rutaArchivoAntiguo);
+      }
+
+      // Redirigir al usuario a la página de inicio
+      res.redirect('/');
+    } else {
+      res.send('Producto no encontrado');
+    }
+  } catch (error) {
+    console.error(error);
+    res.send('Error al leer/escribir el archivo JSON o al borrar el archivo antiguo');
+  }
 });

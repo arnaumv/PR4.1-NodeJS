@@ -54,5 +54,12 @@
         "descripcio": "Anell olímpic on es van celebrar els jocs de 1992, situat als frondosos vessants de Montjuïc.",
         "id": 8,
         "imatge": "images/42e9c270-57f5-4b2c-93ce-887e5422183c.jpg"
+    },
+    {
+        "nom": "Paisaje",
+        "preu": 20,
+        "descripcio": "Hola",
+        "id": 9,
+        "imatge": "images/8c0ef65d-4937-470a-9bb5-f89618349fb1.jpg"
     }
 ]
