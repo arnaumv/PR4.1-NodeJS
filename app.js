@@ -159,7 +159,7 @@ async function getedit(req, res) {
       let dades = JSON.parse(dadesArxiu)
       console.log(dades)
       // Buscar la id per nom
-      let infoProduct = dades.find(idd => (idd.id == query.id))
+      let infoProduct = dades.find(producto => (producto.id == query.id))
       if (infoProduct) {
         // Retornar la pàgina segons la id trobada
         // Fa servir la plantilla 'sites/item.ejs'
