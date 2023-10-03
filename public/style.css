@@ -84,6 +84,10 @@ nav a {
   margin-bottom: 15px; /* Espaciado entre encabezado y formulario */
 }
 
+.textDelete {
+  padding-left: 15%;
+}
+
 /* Estilo para el botón "Editar" */
 .editButton {
   background-color: #007bff; /* Color de fondo del botón */

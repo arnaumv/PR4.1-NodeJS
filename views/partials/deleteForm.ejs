@@ -1,13 +1,19 @@
-
-    <h2>Esborrar el producte amb ID '<%= productId.id %>'</h2>
-    <ul>
-      <li><strong>Nombre del Producto:</strong> <%= productId.nom %></li>
-      <li><strong>Descripción:</strong> <%= productId.descripcio %></li>
-      <li><strong>Precio:</strong> <%= productId.preu %> €</li>
-      <!-- Otras propiedades del producto -->
-    </ul>
-    <div class="product-image">
-      <img src="<%= productId.imatge %>" alt="Imagen del producto" />
-    </div>
-
+<div class="formHeader">
+  <p>Esborrar el producte amb ID  '<%= infoProduct.id %>'?</p>
+</div>
+<div class="textDelete">
+  <p><%= infoProduct.nom %></p>
+  <p><%= infoProduct.preu %></p>
+  <p><%= infoProduct.descripcio %></p>
+</div>
+<div class="miniatura" >
+  <!-- Miniatura de la imagen -->
+  <img style="padding-left: 15%;" src="<%= infoProduct.imatge %>" alt="Miniatura de la imagen" />
+</div>
+<br>
+<form style="padding-left: 15%;" method="post" action="/actionDelete?id=<%= infoProduct.id %>" enctype="multipart/form-data" >
+  <div class="formRow">
+    <input type="submit" value="Borrar" />
+  </div>
+</form>
   

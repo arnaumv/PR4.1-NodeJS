@@ -173,7 +173,7 @@ async function getedit(req, res) {
     }
 }
 
-// Ruta d'Acció d'Esborrar (amb un paràmetre d'URL id)
+// Ruta d'Acció d'Editar (amb un paràmetre d'URL id)
 
 
 app.post('/actionEdit', upload.array('files'), edit);
@@ -237,47 +237,66 @@ async function edit(req, res) {
 
 
 // Ruta de Confirmación de Borrar (con un parámetro de URL id)
-app.get('/delete', (req, res) => {
-  const productId = req.query.id;
-  // Renderizar la página de confirmación de borrado
-  // Usa la plantilla 'sites/confirmation.ejs'
-  res.render('sites/delete',{ productId: productId });
-});
 
-// Ruta de Acción de Borrar (con un parámetro de URL id)
-app.post('/actionDelete', async (req, res) => {
-  const productId = req.query.id;
+app.get('/delete', getdelete)
+
+async function getdelete(req, res) {
+    let query = url.parse(req.url, true).query;
+    try {
+      // Llegir el fitxer JSON
+      let dadesArxiu = await fs.readFile("./private/productes.json", { encoding: 'utf8' })
+      console.log(dadesArxiu)
+      let dades = JSON.parse(dadesArxiu)
+      console.log(dades)
+      // Buscar la id per nom
+      let infoProduct = dades.find(producto => (producto.id == query.id))
+      if (infoProduct) {
+        // Retornar la pàgina segons la id trobada
+        // Fa servir la plantilla 'sites/item.ejs'
+        res.render('sites/delete', { infoProduct: infoProduct })
+      } else {
+        res.send('Paràmetres incorrectes')
+      }
+    } catch (error) {
+      console.error(error)
+      res.send('Error al llegir el fitxer JSON')
+    }
+}
+
+// Ruta d'Acció de Borrar (amb un paràmetre d'URL id)
+
+app.post('/actionDelete', deleteItem);
+
+async function deleteItem(req, res) {
   try {
+    const arxiu = "./private/productes.json";
+    const idToDelete = req.query.id; // Obtener la ID desde la URL
     // Leer el archivo JSON
-    let dadesArxiu = await fs.readFile('./private/productes.json', { encoding: 'utf8' });
+    const dadesArxiu = await fs.readFile(arxiu, { encoding: 'utf8' });
     let dades = JSON.parse(dadesArxiu);
 
-    // Encontrar el índice del producto por ID
-    let infoProductIndex = dades.findIndex(producto => producto.id === productId);
+    // Encontrar el índice del objeto que coincide con la ID recibida en la URL
+    const indexToDelete = dades.findIndex((item) => item.id === parseInt(idToDelete));
 
-    if (infoProductIndex !== -1) {
-      // Obtener el nombre del archivo antiguo para borrarlo
-      const nombreArchivoAntiguo = dades[infoProductIndex].imatge;
-
-      // Eliminar el producto del array
-      dades.splice(infoProductIndex, 1);
-
-      // Escribir los datos actualizados en el archivo JSON
-      await fs.writeFile('./private/productes.json', JSON.stringify(dades, null, 2));
-
-      // Borrar el archivo antiguo si existe
-      if (nombreArchivoAntiguo) {
-        const rutaArchivoAntiguo = path.join('./private', nombreArchivoAntiguo);
-        await fs.unlink(rutaArchivoAntiguo);
-      }
-
-      // Redirigir al usuario a la página de inicio
-      res.redirect('/');
-    } else {
-      res.send('Producto no encontrado');
+    if (indexToDelete === -1) {
+      // La ID no se encontró en la base de datos
+      res.status(404).send('ID no encontrada en la base de datos');
+      return;
     }
+
+    // Eliminar el elemento de la base de datos
+    dades.splice(indexToDelete, 1);
+
+    // Transformar los datos actualizados a cadena de texto
+    const textDades = JSON.stringify(dades, null, 4);
+
+    // Guardar los datos actualizados en el archivo JSON
+    await fs.writeFile(arxiu, textDades, { encoding: 'utf8' });
+
+    res.redirect('/'); // Redirigir a la página de inicio después de la eliminación
+
   } catch (error) {
     console.error(error);
-    res.send('Error al leer/escribir el archivo JSON o al borrar el archivo antiguo');
+    res.status(500).send('Error al eliminar el elemento');
   }
-});
+}
