@@ -1,3 +1,3 @@
 Autores:
-  Mehdi Regbaoui
+  Mehdi Regbaoui -
   Arnau Mestre
